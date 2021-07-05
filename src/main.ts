@@ -5,10 +5,10 @@
 // import { sayHello } from "./greet";
 // console.log(sayHello("TypeScript"));
 import { sayHello } from "./greet";
-import { createTimer } from "./timer";
-function showHello(divName: string, name: string) {
-  const elt = document.getElementById(divName);
-    elt.innerText = sayHello(name);
-}
-showHello("greeting", "TypeScript");
-createTimer();
+import { runTimer } from "./timer";
+// function showHello(divName: string, name: string) {
+//   const elt = document.getElementById(divName);
+//     elt.innerText = sayHello(name);
+// }
+// showHello("greeting", "TypeScript");
+runTimer();
