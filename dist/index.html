@@ -7,8 +7,19 @@
 </head>
 
 <body>
-    <p id="greeting">Loading ...</p>
-    <div id="timer"></div>
+    <div class="container">
+  <div class="timer" id="timer">
+    <h1 class="timer__title">Timer</h1>
+		<p class="timer__text" id="timer-text">Укажите время в минутах</P>
+	<div class="timer__menu">
+	<button class="timer__btn timer__less-btn" id="timer-less-btn">-</button>
+	<input class="timer__input" type="text" id="timer-input"></input>
+	<button class="timer__btn timer__more-btn" id="timer-more-btn">+</button>
+	</div>
+	
+	<button class="timer__start-btn">Start</button>
+  </div>
+</div>
     <script src="..\dist\bundle.js"></script>
 </body>
 
