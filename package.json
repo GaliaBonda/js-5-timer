@@ -9,14 +9,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "eslint --fix"
     }
-  },
-  "lint-staged": {
-    "**/*.ts": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "author": "",
   "license": "ISC",

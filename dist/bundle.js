@@ -5701,12 +5701,14 @@ timerLessBtn.onclick = function () {
         inputTime -= 1;
         timerInput.value = inputTime.toString();
     } else {
+        // eslint-disable-next-line no-alert
         alert('Wanna go back in time? Good luck with that!');
     }
 };
 timerInput.oninput = function () {
     if (Number.isNaN(parseInt(timerInput.value, 10))) {
-        alert('What kind of time is that?');
+        // eslint-disable-next-line no-alert
+        alert('And what kind of time is that?');
         timerInput.value = '0';
     }
 };
