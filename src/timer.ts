@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import * as moment from '../node_modules/moment/moment';
 
 const timerInput = <HTMLInputElement>document.getElementById('timer-input');

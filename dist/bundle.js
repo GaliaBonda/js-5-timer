@@ -5674,19 +5674,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-// function hello(compiler: string) {
-//   console.log(`Hello from ${compiler}`);
-// }
-// hello("TypeScript");
-// import { sayHello } from "./greet";
-// console.log(sayHello("TypeScript"));
-// import { sayHello } from "./greet";
 var timer_1 = require("./timer");
-// function showHello(divName: string, name: string) {
-//   const elt = document.getElementById(divName);
-//     elt.innerText = sayHello(name);
-// }
-// showHello("greeting", "TypeScript");
 timer_1.runTimer();
 
 },{"./timer":3}],3:[function(require,module,exports){
@@ -5694,6 +5682,7 @@ timer_1.runTimer();
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.runTimer = void 0;
+/* eslint-disable import/prefer-default-export */
 var moment = require("../node_modules/moment/moment");
 var timerInput = document.getElementById('timer-input');
 var timerMoreBtn = document.getElementById('timer-more-btn');
@@ -5702,38 +5691,31 @@ timerMoreBtn.onclick = function () {
     if (!timerInput.value) {
         timerInput.value = '0';
     }
-    var inputTime = parseInt(timerInput.value);
-    inputTime++;
+    var inputTime = parseInt(timerInput.value, 10);
+    inputTime += 1;
     timerInput.value = inputTime.toString();
 };
 timerLessBtn.onclick = function () {
-    var inputTime = parseInt(timerInput.value);
+    var inputTime = parseInt(timerInput.value, 10);
     if (inputTime > 0) {
-        inputTime--;
+        inputTime -= 1;
         timerInput.value = inputTime.toString();
     } else {
         alert('Wanna go back in time? Good luck with that!');
     }
 };
 timerInput.oninput = function () {
-    if (isNaN(parseInt(timerInput.value))) {
+    if (Number.isNaN(parseInt(timerInput.value, 10))) {
         alert('What kind of time is that?');
         timerInput.value = '0';
     }
 };
 function runTimer() {
-    // let timerDiv = document.getElementById('timer');
-    // let timeInput = document.createElement('input');
-    // timerDiv.appendChild(timeInput);
-    // let timeOutput = document.createElement('div');
-    // timerDiv.appendChild(timeOutput);
     var usersTime = void 0;
     var start = document.getElementById('start');
     start.onclick = function () {
         usersTime = timerInput.value;
-        //console.log(timeInput.value);
-        var time = moment({ minute: parseInt(usersTime), second: 0 });
-        //console.log(time);
+        var time = moment({ minute: parseInt(usersTime, 10), second: 0 });
         var timerText = document.getElementById('timer-text');
         timerText.innerHTML = 'Осталось:';
         var timerMenu = document.getElementById('timer-menu');
@@ -5747,31 +5729,11 @@ function runTimer() {
         var timing = setInterval(function () {
             var newTime = time.subtract(1, 'seconds');
             timerOutput.innerHTML = newTime.format('mm:ss');
-            //console.log(newTime.format('mm:ss'));
         }, 1000);
         setTimeout(function () {
             clearInterval(timing);
-        }, parseInt(usersTime) * 1000 * 60);
+        }, parseInt(usersTime, 10) * 1000 * 60);
     };
-    // timerInput.onkeydown = (event) => {
-    //     if (event.keyCode === 13) {
-    //         usersTime = timerInput.value;
-    //         //console.log(timeInput.value);
-    //         let time = moment({ minute: parseInt(usersTime), second: 0 });
-    //         //console.log(time);
-    //         let timerText = document.getElementById('timer-text');
-    //         timerText.innerHTML = 'Осталось:';
-    //         let timerMenu = document.getElementById('timer-menu');
-    //         timerMenu.style.display = 'none';
-    //         // timeOutput.innerHTML = time.format('mm:ss');
-    //         // let timing = setInterval(function () {
-    //         //     let newTime = time.subtract(1, 'seconds');
-    //         //     timeOutput.innerHTML = newTime.format('mm:ss');
-    //         //     //console.log(newTime.format('mm:ss'));
-    //         // }, 1000);
-    //         // setTimeout(() => { clearInterval(timing); }, parseInt(usersTime) * 1000 * 60);
-    //     }
-    // }
 }
 exports.runTimer = runTimer;
 
