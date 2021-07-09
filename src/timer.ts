@@ -27,7 +27,7 @@ timerLessBtn.onclick = () => {
 timerInput.oninput = () => {
   if (Number.isNaN(parseInt(timerInput.value, 10))) {
     // eslint-disable-next-line no-alert
-    alert('What kind of time is that?');
+    alert('And what kind of time is that?');
     timerInput.value = '0';
   }
 };
