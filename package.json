@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"No test specified\"",
     "deploy": "gulp build && gh-pages -d build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint src/*.{js,jsx,ts}"
   },
   "author": "",
   "license": "ISC",
