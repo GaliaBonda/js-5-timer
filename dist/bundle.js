@@ -5708,7 +5708,7 @@ timerLessBtn.onclick = function () {
 timerInput.oninput = function () {
     if (Number.isNaN(parseInt(timerInput.value, 10))) {
         // eslint-disable-next-line no-alert
-        alert('And what kind of time is that?');
+        alert('What kind of time is that?');
         timerInput.value = '0';
     }
 };
@@ -5731,10 +5731,11 @@ function runTimer() {
         var timing = setInterval(function () {
             var newTime = time.subtract(1, 'seconds');
             timerOutput.innerHTML = newTime.format('mm:ss');
+            if (timerOutput.innerHTML === '00:00') clearInterval(timing);
         }, 1000);
-        setTimeout(function () {
-            clearInterval(timing);
-        }, parseInt(usersTime, 10) * 1000 * 60);
+        // setTimeout(() => {
+        //   clearInterval(timing);
+        // }, parseInt(usersTime, 10) * 1000 * 60);
     };
 }
 exports.runTimer = runTimer;

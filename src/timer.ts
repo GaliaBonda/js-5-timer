@@ -13,6 +13,7 @@ timerMoreBtn.onclick = () => {
   inputTime += 1;
   timerInput.value = inputTime.toString();
 };
+
 timerLessBtn.onclick = () => {
   let inputTime : number = parseInt(timerInput.value, 10);
   if (inputTime > 0) {
@@ -34,7 +35,7 @@ timerInput.oninput = () => {
 };
 
 export function runTimer() {
-  let usersTime;
+  let usersTime: string;
   const start : HTMLElement= document.getElementById('start');
   start.onclick = () => {
     usersTime = timerInput.value;
@@ -53,9 +54,13 @@ export function runTimer() {
     const timing : number = setInterval(() => {
       const newTime : moment.Moment = time.subtract(1, 'seconds');
       timerOutput.innerHTML = newTime.format('mm:ss');
+      if (timerOutput.innerHTML === '00:00') clearInterval(timing);
     }, 1000);
-    setTimeout(() => {
-      clearInterval(timing);
-    }, parseInt(usersTime, 10) * 1000 * 60);
+    
+    
+    
+    // setTimeout(() => {
+    //   clearInterval(timing);
+    // }, parseInt(usersTime, 10) * 1000 * 60);
   };
 }
